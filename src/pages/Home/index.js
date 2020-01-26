@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 
 function Home() {
-    console.log(process.env);
     const [shortUrl, setshortUrl] = useState('');
     
     async function handleSubmit(e) {
