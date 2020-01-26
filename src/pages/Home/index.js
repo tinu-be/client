@@ -18,7 +18,7 @@ function Home() {
         const { shortUrl } = response.data;
 
         if(response.status === 208) {
-            setshortUrl('Este sufixo de já existe, tente outro.');
+            setshortUrl('Este sufixo já existe, tente outro.');
         } else {
             setshortUrl(shortUrl);
         }
