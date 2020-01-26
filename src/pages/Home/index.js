@@ -16,7 +16,14 @@ function Home() {
         });
 
         const { shortUrl } = response.data;
-        setshortUrl(shortUrl);
+
+        if(response.status === 208) {
+            setshortUrl('Este sufixo de já existe, tente outro.');
+        } else {
+            setshortUrl(shortUrl);
+        }
+
+        console.log(response);
     }
 
     return (
