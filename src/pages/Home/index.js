@@ -22,8 +22,6 @@ function Home() {
         } else {
             setshortUrl(shortUrl);
         }
-
-        console.log(response);
     }
 
     return (
