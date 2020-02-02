@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 
+// Components
+import Header from '../../components/Header';
+
+// Assets
+import '../../assets/sass/main.scss';
+
 function Home() {
-    const [shortUrl, setshortUrl] = useState('');
+    const [shortUrl, setshortUrl] = useState([]);
     
     async function handleSubmit(e) {
         e.preventDefault();
@@ -15,29 +21,39 @@ function Home() {
             customID
         });
 
-        const { shortUrl } = response.data;
-
         if(response.status === 208) {
-            setshortUrl('Este sufixo já existe, tente outro.');
+            alert('Sufixo já existe');
         } else {
-            setshortUrl(shortUrl);
+            setshortUrl([...shortUrl, response.data.shortUrl]);
         }
     }
 
     return (
         <>
-            <form>
-                <label htmlFor="longUrl">URL</label>
-                <input type="text" id="longUrl" placeholder="Cole a url aqui"/>
+            <div className="container">
+                <Header />
+                <form className="form-grid">
+                    <div className="form-field">
+                        <label htmlFor="longUrl">URL *</label>
+                        <input type="url" id="longUrl" placeholder="Cole a url aqui" required/>
+                    </div>
+                    
+                    <div className="form-field">
+                        <label htmlFor="customID">Sufixo (opcional)</label>
+                        <input type="text" id="customID" placeholder="ID customizado"/>
+                    </div>
+                    
 
-                <label htmlFor="customID">Crie um sufixo customizado</label>
-                <input type="text" id="customID" placeholder="ID customizado"/>
+                    <button className="button-primary" type="submit" onClick={ handleSubmit }>Encurtar url</button>
+                </form>
 
-                <button onClick={ handleSubmit }>Encurtar url</button>
-            </form>
-
-            <div id="url-shortened">
-                { shortUrl }
+                <div id="url-shortened">
+                    { shortUrl.map( item => (
+                        <div key={item.index} className="shorturl">
+                            <a href={item} target="_blank" rel="noopener noreferrer">{item}</a>
+                        </div>
+                    )) }
+                </div>
             </div>
         </>
     );

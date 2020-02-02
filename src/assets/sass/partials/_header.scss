@@ -1,0 +1,21 @@
+#header {
+    padding: $gutter / 2 0;
+    text-align: center;
+    align-items: center;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 600;
+        margin-bottom: $gutter / 2;
+        line-height: 1.3em;
+
+        + p {
+            color: $ocean-blue;
+        }
+
+        @media screen and (max-width: 768px) {
+            font-size: 2rem;
+            line-height: 1.2em;
+        }
+    }
+}

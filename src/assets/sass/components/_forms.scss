@@ -1,0 +1,70 @@
+input, button {
+    font-family: $base-font-family;
+    background: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    border: 0;
+    box-shadow: 0 10px 20px rgba(#000, .10);
+    outline: 0;
+    height: 48px;
+    width: 100%;
+
+    &::placeholder {
+        color: $ocean-blue;
+        font-style: italic;
+    }
+}
+
+label {
+    font-weight: 600;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    
+    label + input {
+        display: flex;
+        margin-top: 8px;
+        
+        @media screen and (max-width: 768px) {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: $gutter / 2;
+    margin-top: $gutter;
+
+    .form-field + button {
+        margin-top: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
+
+.button-primary {
+    cursor: pointer;
+    padding: 0;
+    height: 48px;
+    background-color: $blue;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: background .3s ease;
+
+    &:hover {
+        background-color: lighten($blue, 10%);
+    }
+}

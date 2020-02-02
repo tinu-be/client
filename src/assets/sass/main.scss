@@ -1,0 +1,41 @@
+@import 'settings/variables';
+@import 'partials/header';
+@import 'components/forms';
+
+* {
+    box-sizing: border-box;
+    font-size: $font-size-root;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    background: #fff;
+    padding: 10px;
+}
+
+body {
+    background: $body-bg;
+    border-radius: 10px;
+    color: $body-color;
+    font-family: $base-font-family;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: $container-width;
+    padding: $gutter;
+    margin: auto;
+}
