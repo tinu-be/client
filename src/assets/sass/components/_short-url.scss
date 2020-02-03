@@ -1,8 +1,12 @@
 #url-shortened {
     display: flex;
     flex-direction: column;
-    margin-top: $gutter;
+    margin-top: $gutter * 2;
     border-radius: 5px;
+
+    @media screen and (max-width: 768px) {
+        margin-top: $gutter;
+    }
 }
 
 .shorturl {

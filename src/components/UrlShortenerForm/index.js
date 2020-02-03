@@ -24,7 +24,7 @@ function UrlShortenerForm() {
         }
 
         const response = await api.post('/api/shorten', {
-            longUrl: longUrl.value,
+            longUrl: longUrl.value.includes('http://') ? longUrl.value : `http://${longUrl.value}`,
             customID: customID.value
         });
 
@@ -33,6 +33,7 @@ function UrlShortenerForm() {
             customID.focus();
         } else {
             setshortUrl([...shortUrl, response.data.shortUrl]);
+            longUrl.value = "";
         }
     }
 
@@ -61,13 +62,15 @@ function UrlShortenerForm() {
                     { errorId && <small className="error">{errorId}</small> }
                 </div>
 
-                <button className="button-primary" type="submit" onClick={ handleSubmit }>Encurtar url</button>
+                <button className="button-primary" type="submit" onClick={ handleSubmit }>
+                    Encurtar url
+                </button>
             </form>
 
             { shortUrl !== "" &&
                 <div id="url-shortened">
-                    { shortUrl.map( item => (
-                        <div key={item} className="shorturl">
+                    { shortUrl.map((item, key) => (
+                        <div key={key} className="shorturl">
                             <div className="shorturl-output">
                                 <span>Url encurtada:</span>
                                 <a href={item} target="_blank" rel="noopener noreferrer">{item}</a>

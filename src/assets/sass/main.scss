@@ -12,11 +12,6 @@ html, body {
     height: 100%;
 }
 
-html {
-    background: #fff;
-    padding: 10px;
-}
-
 body {
     background: $body-bg;
     border-radius: 10px;
@@ -28,6 +23,7 @@ body {
     height: 100%;
 
     @media screen and (max-width: 768px) {
+        background: $body-bg;
         height: 100vh;
     }
 }
