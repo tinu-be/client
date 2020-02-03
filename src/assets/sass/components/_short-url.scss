@@ -1,0 +1,59 @@
+#url-shortened {
+    display: flex;
+    flex-direction: column;
+    margin-top: $gutter;
+    border-radius: 5px;
+}
+
+.shorturl {
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: row;
+    color: #909090;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 5px 0;
+    
+    a {
+        text-decoration: none;
+        color: #606060;
+    }
+
+    span {
+        font-size: .8em;
+    }
+
+    &-output {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.shorturl-actions {
+    margin-left: auto;
+}
+.button-copy {
+    cursor: pointer;
+    display: flex;
+    margin-left: auto;
+    max-width: 100px;
+    padding: 10px;
+    color: #fff;
+    background-color: $dark-blue;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+
+    svg {
+        margin-right: 5px;
+    }
+
+    &:hover {
+        background-color: lighten($dark-blue, 10%);
+    }
+}
+
+.is-copied {
+    color: #859970;
+    font-weight: 600;
+}

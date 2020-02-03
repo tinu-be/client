@@ -14,7 +14,9 @@
     "react-scripts": "3.3.0"
   },
   "devDependencies": {
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "react-icons": "^3.9.0",
+    "react-copy-to-clipboard": "^5.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

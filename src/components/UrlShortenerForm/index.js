@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { MdContentCopy } from 'react-icons/md';
 
 import validateUrl from '../../helpers/validateUrl';
 
@@ -51,13 +53,26 @@ function UrlShortenerForm() {
                 <button className="button-primary" type="submit" onClick={ handleSubmit }>Encurtar url</button>
             </form>
 
-            <div id="url-shortened">
-                { shortUrl.map( item => (
-                    <div key={item.index} className="shorturl">
-                        <a href={item} target="_blank" rel="noopener noreferrer">{item}</a>
-                    </div>
-                )) }
-            </div>
+            { shortUrl !== "" &&
+                <div id="url-shortened">
+                    { shortUrl.map( item => (
+                        <div key={item} className="shorturl">
+                            <div className="shorturl-output">
+                                <span>Url encurtada:</span>
+                                <a href={item} target="_blank" rel="noopener noreferrer">{item}</a>
+                            </div>
+
+                            <div className="shorturl-actions">
+                                <CopyToClipboard text={item}>
+                                    <button className="button-copy">
+                                        <MdContentCopy /> Copiar
+                                    </button>
+                                </CopyToClipboard>
+                            </div>
+                        </div>
+                    )) }
+                </div>   
+            }
         </>
     )
 };
