@@ -53,7 +53,26 @@
     }
 }
 
-.is-copied {
-    color: #859970;
+.clipboard-copied {
+    background: rgba(0,0,0,.8);
+    display: flex;
+    margin: 0 auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    align-items: center;
     font-weight: 600;
+    position: fixed;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: bottom .2s ease;
+
+    svg {
+        margin-right: 10px;
+    }
+
+    &.is-visible {
+        bottom: 20px;
+    }
 }

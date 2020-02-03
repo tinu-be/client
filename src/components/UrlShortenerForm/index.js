@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { MdContentCopy } from 'react-icons/md';
+import { MdContentCopy, MdCheck } from 'react-icons/md';
 
 import validateUrl from '../../helpers/validateUrl';
 
@@ -9,6 +9,7 @@ function UrlShortenerForm() {
     const [shortUrl, setshortUrl] = useState([]);
     const [errorUrl, setErrorUrl] = useState();
     const [errorId, setErrorId] = useState();
+    const [copied, setCopied] = useState(false)
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -33,6 +34,16 @@ function UrlShortenerForm() {
         } else {
             setshortUrl([...shortUrl, response.data.shortUrl]);
         }
+    }
+
+    function handleCopy() {
+        setCopied(true);
+
+        var changeState = setTimeout(() => {
+            setCopied(false);
+        }, 800);
+
+        return changeState;
     }
 
     return(
@@ -63,7 +74,7 @@ function UrlShortenerForm() {
                             </div>
 
                             <div className="shorturl-actions">
-                                <CopyToClipboard text={item}>
+                                <CopyToClipboard text={item} onCopy={ handleCopy }>
                                     <button className="button-copy">
                                         <MdContentCopy /> Copiar
                                     </button>
@@ -71,8 +82,12 @@ function UrlShortenerForm() {
                             </div>
                         </div>
                     )) }
-                </div>   
+                </div>
             }
+
+            <div className={ 'clipboard-copied ' + (copied ? 'is-visible' : '')}>
+                <MdCheck size="2em"/> Link copiado!
+            </div>
         </>
     )
 };
