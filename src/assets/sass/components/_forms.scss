@@ -27,13 +27,24 @@ form {
 .form-field {
     display: flex;
     flex-direction: column;
+    position: relative;
     
     label + input {
         display: flex;
         margin-top: 8px;
         
         @media screen and (max-width: 768px) {
-            margin-bottom: 10px;
+            margin-bottom: $gutter / 2;
+        }
+    }
+
+    .error {
+        position: absolute;
+        bottom: -30px;
+
+        @media screen and (max-width: 768px) {
+            position: static;
+            margin-top: -8px;
         }
     }
 }
@@ -67,4 +78,11 @@ form {
     &:hover {
         background-color: lighten($blue, 10%);
     }
+}
+
+.error {
+    color: rgb(250, 104, 104);
+    border-radius: 3px;
+    font-size: .8rem;
+    margin: 5px 0;
 }
