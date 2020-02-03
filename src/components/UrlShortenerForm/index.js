@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { MdContentCopy, MdCheck } from 'react-icons/md';
-
 import validateUrl from '../../helpers/validateUrl';
+import UrlShortened from '../../components/UrlShortened';
 
 function UrlShortenerForm() {
     const [shortUrl, setshortUrl] = useState([]);
     const [errorUrl, setErrorUrl] = useState();
     const [errorId, setErrorId] = useState();
-    const [copied, setCopied] = useState(false)
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -37,16 +34,6 @@ function UrlShortenerForm() {
         }
     }
 
-    function handleCopy() {
-        setCopied(true);
-
-        var changeState = setTimeout(() => {
-            setCopied(false);
-        }, 800);
-
-        return changeState;
-    }
-
     return(
         <>
             <form className="form-grid" action="">
@@ -70,27 +57,10 @@ function UrlShortenerForm() {
             { shortUrl !== "" &&
                 <div id="url-shortened">
                     { shortUrl.map((item, key) => (
-                        <div key={key} className="shorturl">
-                            <div className="shorturl-output">
-                                <span>Url encurtada:</span>
-                                <a href={item} target="_blank" rel="noopener noreferrer">{item}</a>
-                            </div>
-
-                            <div className="shorturl-actions">
-                                <CopyToClipboard text={item} onCopy={ handleCopy }>
-                                    <button className="button-copy">
-                                        <MdContentCopy /> Copiar
-                                    </button>
-                                </CopyToClipboard>
-                            </div>
-                        </div>
+                        <UrlShortened item={item} key={key}/>
                     )) }
                 </div>
             }
-
-            <div className={ 'clipboard-copied ' + (copied ? 'is-visible' : '')}>
-                <MdCheck size="2em"/> Link copiado!
-            </div>
         </>
     )
 };
