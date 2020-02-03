@@ -24,7 +24,7 @@ function UrlShortenerForm() {
         }
 
         const response = await api.post('/api/shorten', {
-            longUrl: longUrl.value.includes('http://') ? longUrl.value : `http://${longUrl.value}`,
+            longUrl: longUrl.value.includes('http://') || longUrl.value.includes('https://') ? longUrl.value : `http://${longUrl.value}`,
             customID: customID.value
         });
 
