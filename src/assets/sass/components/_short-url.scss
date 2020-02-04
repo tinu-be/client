@@ -54,18 +54,20 @@
     cursor: pointer;
     display: flex;
     max-width: 100px;
-    padding: 10px;
-    color: #fff;
-    background-color: $dark-blue;
+    padding: 5px;
+    font-size: 1.2rem;
+    color: $blue;
     align-items: center;
     justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
 
     svg {
         margin-right: 5px;
     }
 
     &:hover {
-        background-color: lighten($dark-blue, 10%);
+        background-color: lighten($ocean-blue, 7%);
     }
 }
 

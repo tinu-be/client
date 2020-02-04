@@ -26,7 +26,7 @@ function UrlShortened(props) {
                 <div className="shorturl-actions">
                     <CopyToClipboard text={props.item} onCopy={ handleCopy }>
                         <button className="button-copy">
-                            <MdContentCopy /> Copiar
+                            <MdContentCopy size="2em" /> Copiar
                         </button>
                     </CopyToClipboard>
                 </div>

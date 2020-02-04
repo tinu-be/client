@@ -50,14 +50,14 @@ form {
     cursor: pointer;
     padding: 0;
     height: 52px;
-    background-color: $blue;
+    background: linear-gradient(45deg, $blue, lighten($blue, 20%));
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
     transition: background .3s ease;
 
     &:hover {
-        background-color: lighten($blue, 10%);
+        background: linear-gradient(-45deg, $blue, lighten($blue, 5%));
     }
 }
 
