@@ -31,6 +31,7 @@ function UrlShortenerForm() {
         } else {
             setshortUrl([...shortUrl, response.data.shortUrl]);
             longUrl.value = "";
+            customID.value = "";
         }
     }
 
