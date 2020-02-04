@@ -13,6 +13,7 @@ By the first rename the file `.env-sample` to `.env` and fill with all necessary
 ```
 # API host
 REACT_APP_API_URL=http://localhost:5000/
+REACT_APP_GOOGLE_ANALYTICS=UA-XXXXXXXX-X
 ```
 
 _Get url from [tinube-api](https://github.com/itbruno/tinube-api) repo_
