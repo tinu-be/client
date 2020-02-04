@@ -6,7 +6,7 @@ input, button {
     border: 0;
     box-shadow: 0 10px 20px rgba(#000, .10);
     outline: 0;
-    height: 48px;
+    height: 52px;
     width: 100%;
 
     &::placeholder {
@@ -68,7 +68,7 @@ form {
 .button-primary {
     cursor: pointer;
     padding: 0;
-    height: 48px;
+    height: 52px;
     background-color: $blue;
     color: #fff;
     text-transform: uppercase;
