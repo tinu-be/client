@@ -43,6 +43,10 @@ form {
 
     .form-field + button {
         margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .2s ease;
     }
 }
 
@@ -68,4 +72,23 @@ form {
     margin: 5px 0;
     position: absolute;
     bottom: -25px;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-icon {
+    animation: loading .5s linear infinite;
+    margin-left: 10px;
+
+    &.hide {
+        display: none;
+    }
 }

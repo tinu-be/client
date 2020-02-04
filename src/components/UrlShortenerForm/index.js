@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 import validateUrl from '../../helpers/validateUrl';
 import UrlShortened from '../../components/UrlShortened';
+import {AiOutlineLoading} from 'react-icons/ai';
 
 function UrlShortenerForm() {
     const [shortUrl, setshortUrl] = useState([]);
@@ -13,10 +14,14 @@ function UrlShortenerForm() {
 
         const longUrl = document.querySelector('#longUrl');
         const  customID = document.querySelector('#customID');
+        const loading = document.querySelector('.js-loading-icon');
+
+        loading.classList.remove('hide');
 
         if(longUrl.value === '' || !validateUrl(longUrl.value)) {
             longUrl.focus();
             setErrorUrl('Preencha a URL corretamente');
+            loading.classList.add('hide');
             return;
         }
 
@@ -28,10 +33,12 @@ function UrlShortenerForm() {
         if(response.status === 208) {
             setErrorId('Esse sufixo já existe, que tal testar outro?');
             customID.focus();
+            loading.classList.add('hide');
         } else {
             setshortUrl([...shortUrl, response.data.shortUrl]);
             longUrl.value = "";
             customID.value = "";
+            loading.classList.add('hide');
         }
     }
 
@@ -51,7 +58,7 @@ function UrlShortenerForm() {
                 </div>
 
                 <button className="button-primary" type="submit" onClick={ handleSubmit }>
-                    Encurtar url
+                    Encurtar url <AiOutlineLoading className="js-loading-icon loading-icon hide" size="1.5em"/>
                 </button>
             </form>
 
