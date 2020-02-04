@@ -1,7 +1,7 @@
 #url-shortened {
     display: flex;
     flex-direction: column;
-    margin-top: $gutter * 2;
+    margin-top: $gutter;
     border-radius: 5px;
 
     @media screen and (max-width: 768px) {
@@ -61,6 +61,7 @@
     justify-content: center;
     background-color: transparent;
     box-shadow: none;
+    height: auto;
 
     svg {
         margin-right: 5px;
