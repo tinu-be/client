@@ -9,7 +9,7 @@ function Header() {
                 <img src={logo} alt="tinu.be - encurtador de url" width="160"/> 
 
                 <h1>Encurtador de urls</h1>
-                <p>Encurte links e compartilhe em seu Instagram, Facebook, WhatsApp...</p>
+                <p>Encurte links e compartilhe facilmente em qualquer lugar e com quem quiser.</p>
             </header>
         </>
     )

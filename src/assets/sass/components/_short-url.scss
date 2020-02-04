@@ -53,14 +53,12 @@
 .button-copy {
     cursor: pointer;
     display: flex;
-    margin-left: auto;
     max-width: 100px;
     padding: 10px;
     color: #fff;
     background-color: $dark-blue;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
 
     svg {
         margin-right: 5px;
@@ -72,7 +70,7 @@
 }
 
 .clipboard-copied {
-    background: rgba(0,0,0,.8);
+    background: #91a94e;
     display: flex;
     margin: 0 auto;
     padding: 10px 15px;

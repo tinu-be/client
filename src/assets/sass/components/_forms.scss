@@ -32,36 +32,17 @@ form {
     label + input {
         display: flex;
         margin-top: 8px;
-        
-        @media screen and (max-width: 768px) {
-            margin-bottom: $gutter / 2;
-        }
-    }
-
-    .error {
-        position: absolute;
-        bottom: -30px;
-
-        @media screen and (max-width: 768px) {
-            position: static;
-            margin-top: -8px;
-        }
     }
 }
 
 .form-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: $gutter / 2;
+    grid-template-columns: 1fr;
+    gap: $gutter;
     margin-top: $gutter;
 
     .form-field + button {
         margin-top: auto;
-    }
-
-    @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
-        width: 100%;
     }
 }
 
