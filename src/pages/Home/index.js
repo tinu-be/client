@@ -6,6 +6,9 @@ import Header from '../../components/Header';
 import UrlShortenerForm from '../../components/UrlShortenerForm';
 
 // Assets
+import anchorShape from '../../assets/svgs/anchor-shape.svg';
+
+// Assets
 import '../../assets/sass/main.scss';
 
 function Home() {
@@ -16,7 +19,8 @@ function Home() {
 
     return (
         <>
-            <div className="container">
+            <div className="hero">
+                <img src={anchorShape} className="anchor-shape" width="460"/>
                 <Header />
                 <UrlShortenerForm />
             </div>

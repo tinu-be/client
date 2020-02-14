@@ -1,0 +1,11 @@
+.hero {
+    background-color: $header-bg;
+    position: relative;
+    overflow: hidden;
+
+
+    .anchor-shape {
+        position: absolute;
+        bottom: -20%;
+    }
+}

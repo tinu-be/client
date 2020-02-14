@@ -1,7 +1,11 @@
 #header {
     padding: $gutter / 2 0;
-    text-align: center;
     align-items: center;
+
+    .header-content {
+        text-align: center;
+        padding: ($gutter * 2) 0;
+    }
 
     h1 {
         font-size: 3rem;
@@ -11,11 +15,23 @@
 
         + p {
             color: $ocean-blue;
+            
+            strong {
+                color: #fff; 
+            }
         }
 
         @media screen and (max-width: 768px) {
             font-size: 2rem;
             line-height: 1.2em;
         }
+    }
+
+    .logo-label {
+        font-size: 10px;
+        padding: 3px 6px;
+        background-color: #67af86;
+        border-radius: 50px;
+        color: #fff;
     }
 }

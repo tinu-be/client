@@ -1,7 +1,14 @@
+// Settings | Config
 @import 'settings/variables';
+
+// Partials
 @import 'partials/header';
+
+// Components
+@import 'components/hero';
 @import 'components/forms';
 @import 'components/short-url';
+
 
 * {
     box-sizing: border-box;
@@ -13,7 +20,6 @@ html, body {
 }
 
 body {
-    background: $body-bg;
     border-radius: 10px;
     color: $body-color;
     font-family: $base-font-family;
@@ -39,12 +45,5 @@ p {
     max-width: $container-width;
     padding: $gutter;
     margin: auto;
-}
-
-.logo-label {
-    font-size: 10px;
-    padding: 3px 6px;
-    background-color: #67af86;
-    border-radius: 50px;
-    color: #fff;
+    position: relative;
 }
