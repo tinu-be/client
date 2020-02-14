@@ -1,0 +1,27 @@
+footer {
+    text-align: center;
+    padding: $gutter;
+
+    p {
+        font-size: .9rem;
+        color: $pastel-blue;
+        
+        .copyright-icon {
+            margin: 0 5px;
+            transition: all .1s ease;
+            animation: heartPulse 1s ease infinite;
+            margin-bottom: -3px;
+        }
+    }
+}
+
+@keyframes heartPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}

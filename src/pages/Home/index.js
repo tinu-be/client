@@ -7,8 +7,7 @@ import UrlShortenerForm from '../../components/UrlShortenerForm';
 
 // Assets
 import anchorShape from '../../assets/svgs/anchor-shape.svg';
-
-// Assets
+import { FaHeart } from "react-icons/fa";
 import '../../assets/sass/main.scss';
 
 function Home() {
@@ -27,6 +26,10 @@ function Home() {
                     <UrlShortenerForm />
                 </div>
             </div>
+
+            <footer>
+                <p><strong>tinu.be</strong> é um serviço 100% gratuito. Criado com <FaHeart className="copyright-icon" /> por <a href="https://itbruno.com.br?ref=tinu.be" target="_blank">Bruno Rodrigues</a>.</p>
+            </footer>
         </>
     );
 }

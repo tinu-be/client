@@ -3,6 +3,7 @@
 
 // Partials
 @import 'partials/header';
+@import 'partials/footer';
 
 // Components
 @import 'components/hero';
@@ -32,6 +33,10 @@ body {
 p {
     margin: 0;
     font-size: 1rem;
+}
+
+a {
+    color: $blue;
 }
 
 .container {
