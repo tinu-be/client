@@ -22,7 +22,10 @@ function Home() {
             <div className="hero">
                 <img src={anchorShape} className="anchor-shape" width="460"/>
                 <Header />
-                <UrlShortenerForm />
+                
+                <div className="container">
+                    <UrlShortenerForm />
+                </div>
             </div>
         </>
     );

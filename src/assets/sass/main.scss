@@ -20,18 +20,13 @@ html, body {
 }
 
 body {
-    border-radius: 10px;
     color: $body-color;
     font-family: $base-font-family;
     -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
     height: 100%;
-
-    @media screen and (max-width: 768px) {
-        background: $body-bg;
-        height: 100vh;
-    }
+    border-top: 5px solid $blue;
 }
 
 p {
@@ -44,6 +39,6 @@ p {
     flex-direction: column;
     max-width: $container-width;
     padding: $gutter;
-    margin: auto;
+    margin: 0 auto;
     position: relative;
 }

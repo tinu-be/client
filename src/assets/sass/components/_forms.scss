@@ -10,7 +10,7 @@ input, button {
     width: 100%;
 
     &::placeholder {
-        color: $ocean-blue;
+        color: #bbb;
         font-style: italic;
     }
 }
@@ -37,9 +37,8 @@ form {
 
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     gap: $gutter;
-    margin-top: $gutter;
 
     .form-field + button {
         margin-top: auto;
@@ -47,6 +46,10 @@ form {
         align-items: center;
         justify-content: center;
         transition: all .2s ease;
+    }
+
+    @media screen and (max-width: $widthSM) {
+        grid-template-columns: 1fr;
     }
 }
 

@@ -4,7 +4,11 @@
 
     .header-content {
         text-align: center;
-        padding: ($gutter * 2) 0;
+        padding: ($gutter * 2) 0 $gutter;
+
+        @media screen and (max-width: $widthSM) {
+            padding-bottom: 0;
+        }
     }
 
     h1 {
@@ -21,7 +25,7 @@
             }
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: $widthSM) {
             font-size: 2rem;
             line-height: 1.2em;
         }
