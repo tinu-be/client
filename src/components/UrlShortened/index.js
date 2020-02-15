@@ -19,14 +19,14 @@ function UrlShortened(props) {
         <>
             <div className="shorturl">
                 <div className="shorturl-output">
-                    <span>Url encurtada:</span>
+                    <span className="label">Url encurtada:</span>
                     <a href={props.item} target="_blank" rel="noopener noreferrer">{props.item}</a>
                 </div>
 
                 <div className="shorturl-actions">
                     <CopyToClipboard text={props.item} onCopy={ handleCopy }>
                         <button className="button-copy">
-                            <MdContentCopy size="2em" /> Copiar
+                            <MdContentCopy size="1.5em" /> Copiar
                         </button>
                     </CopyToClipboard>
                 </div>

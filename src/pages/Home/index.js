@@ -19,7 +19,7 @@ function Home() {
     return (
         <>
             <div className="hero">
-                <img src={anchorShape} className="anchor-shape" width="460"/>
+                <img src={anchorShape} className="anchor-shape" width="460" alt="Anchor shape from tinu.be logo"/>
                 <Header />
                 
                 <div className="container">
@@ -28,7 +28,7 @@ function Home() {
             </div>
 
             <footer>
-                <p><strong>tinu.be</strong> é um serviço 100% gratuito. Criado com <FaHeart className="copyright-icon" /> por <a href="https://itbruno.com.br?ref=tinu.be" target="_blank">Bruno Rodrigues</a>.</p>
+                <p><strong>tinu.be</strong> é um serviço 100% gratuito. Criado com <FaHeart className="copyright-icon" /> por <a rel="noopener noreferrer" href="https://itbruno.com.br?ref=tinu.be" target="_blank">Bruno Rodrigues</a>.</p>
             </footer>
         </>
     );

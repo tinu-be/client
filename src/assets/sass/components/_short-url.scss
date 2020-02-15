@@ -23,8 +23,9 @@
         color: #606060;
     }
 
-    span {
+    .label {
         font-size: .8em;
+        font-weight: 600;
     }
 
     &-output {
@@ -53,10 +54,9 @@
 .button-copy {
     cursor: pointer;
     display: flex;
-    max-width: 100px;
-    padding: 5px;
+    padding: 5px 8px;
     font-size: 1.2rem;
-    color: $blue;
+    color: $pastel-blue;
     align-items: center;
     justify-content: center;
     background-color: transparent;
@@ -68,7 +68,7 @@
     }
 
     &:hover {
-        background-color: lighten($ocean-blue, 7%);
+        background-color: lighten($pastel-blue, 30%);
     }
 }
 
@@ -84,6 +84,8 @@
     position: fixed;
     bottom: -70px;
     left: 50%;
+    z-index: 100;
+    box-shadow: 0 10px 20px rgba(0,0,0, .1);
     transform: translateX(-50%);
     transition: bottom .2s ease;
 
