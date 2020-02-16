@@ -12,8 +12,10 @@ import '../../assets/sass/main.scss';
 
 function Home() {
     useEffect(() => {
-        ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS);
-        ReactGA.pageview('/');
+        if (process.env.NODE_ENV === 'production') {
+            ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS);
+            ReactGA.pageview('/');
+        }
     },[])
 
     return (

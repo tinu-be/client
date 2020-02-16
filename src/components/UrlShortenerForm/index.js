@@ -46,18 +46,20 @@ function UrlShortenerForm() {
             loading.classList.add('hide');
 
         } else {
-            if(customID.value !== '') {
-                ReactGA.event({
-                  category: 'Url com sufixo',
-                  action: 'Digitou um sufixo para a Url'
-                });
-            } else {
-                ReactGA.event({
-                  category: 'Url sem sufixo',
-                  action: 'Não digitou um sufixo para a Url'
-                });
+            if (process.env.NODE_ENV === 'production') {
+                if(customID.value !== '') {
+                    ReactGA.event({
+                      category: 'Url com sufixo',
+                      action: 'Digitou um sufixo para a Url'
+                    });
+                } else {
+                    ReactGA.event({
+                      category: 'Url sem sufixo',
+                      action: 'Não digitou um sufixo para a Url'
+                    });
+                }
             }
-
+            
             setshortUrl([...shortUrl, response.data]);
             longUrl.value = "";
             customID.value = "";
