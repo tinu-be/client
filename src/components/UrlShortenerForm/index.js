@@ -4,6 +4,7 @@ import validateUrl from '../../helpers/validateUrl';
 import UrlShortened from '../../components/UrlShortened';
 import {AiOutlineLoading} from 'react-icons/ai';
 import Storage from '../../helpers/Storage';
+import ReactGA from 'react-ga';
 
 function UrlShortenerForm() {
     const [shortUrl, setshortUrl] = useState([]);
@@ -43,7 +44,20 @@ function UrlShortenerForm() {
             setErrorId('Esse sufixo já existe, que tal testar outro?');
             customID.focus();
             loading.classList.add('hide');
+
         } else {
+            if(customID.value !== '') {
+                ReactGA.event({
+                  category: 'Url com sufixo',
+                  action: 'Digitou um sufixo para a Url'
+                });
+            } else {
+                ReactGA.event({
+                  category: 'Url sem sufixo',
+                  action: 'Não digitou um sufixo para a Url'
+                });
+            }
+
             setshortUrl([...shortUrl, response.data]);
             longUrl.value = "";
             customID.value = "";
