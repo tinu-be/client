@@ -4,6 +4,10 @@
     margin-top: $gutter * 1.5;
     border-radius: 5px;
 
+    &.is-reversed {
+        flex-direction: column-reverse;
+    }
+
     @media screen and (max-width: 768px) {
         margin-top: $gutter;
     }

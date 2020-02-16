@@ -64,7 +64,7 @@ function UrlShortenerForm() {
             loading.classList.add('hide');
 
             if(shortUrl) {
-                Storage.set('urls', JSON.stringify([...shortUrl, response.data]));
+                Storage.set('urls', JSON.stringify([response.data, ...shortUrl]));
             }
         }
     }
@@ -90,7 +90,7 @@ function UrlShortenerForm() {
             </form>
 
             { shortUrl !== "" &&
-                <div id="url-shortened">
+                <div id="url-shortened" className="is-reversed">
                     { shortUrl.map((item, key) => (
                         <UrlShortened shortened={item.shortUrl} long={item.longUrl} key={key}/>
                     )) }
