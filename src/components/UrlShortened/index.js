@@ -18,9 +18,14 @@ function UrlShortened(props) {
     return(
         <>
             <div className="shorturl">
-                <div className="shorturl-output">
+                <div className="shorturl-output is-long">
+                    <span className="label">Url original:</span>
+                    <span className="url">{props.long}</span>
+                </div>
+                
+                <div className="shorturl-output is-short">
                     <span className="label">Url encurtada:</span>
-                    <a href={props.item} target="_blank" rel="noopener noreferrer">{props.item}</a>
+                    <a href={props.shortened} target="_blank" rel="noopener noreferrer" className="url">{props.shortened}</a>
                 </div>
 
                 <div className="shorturl-actions">

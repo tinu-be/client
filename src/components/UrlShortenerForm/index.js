@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import validateUrl from '../../helpers/validateUrl';
 import UrlShortened from '../../components/UrlShortened';
 import {AiOutlineLoading} from 'react-icons/ai';
+import Storage from '../../helpers/Storage';
 
 function UrlShortenerForm() {
     const [shortUrl, setshortUrl] = useState([]);
     const [errorUrl, setErrorUrl] = useState();
     const [errorId, setErrorId] = useState();
 
+    useEffect(() => {
+        if(Storage.get('urls')) {
+            setTimeout(() => {
+                setshortUrl(JSON.parse(Storage.get('urls')));
+            }, 1000);   
+        }
+    },[]);
+
     async function handleSubmit(e) {
         e.preventDefault();
 
         const longUrl = document.querySelector('#longUrl');
-        const  customID = document.querySelector('#customID');
+        const customID = document.querySelector('#customID');
         const loading = document.querySelector('.js-loading-icon');
 
         loading.classList.remove('hide');
@@ -35,10 +44,14 @@ function UrlShortenerForm() {
             customID.focus();
             loading.classList.add('hide');
         } else {
-            setshortUrl([...shortUrl, response.data.shortUrl]);
+            setshortUrl([...shortUrl, response.data]);
             longUrl.value = "";
             customID.value = "";
             loading.classList.add('hide');
+
+            if(shortUrl) {
+                Storage.set('urls', JSON.stringify([...shortUrl, response.data]));
+            }
         }
     }
 
@@ -65,7 +78,7 @@ function UrlShortenerForm() {
             { shortUrl !== "" &&
                 <div id="url-shortened">
                     { shortUrl.map((item, key) => (
-                        <UrlShortened item={item} key={key}/>
+                        <UrlShortened shortened={item.shortUrl} long={item.longUrl} key={key}/>
                     )) }
                 </div>
             }

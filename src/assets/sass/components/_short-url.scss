@@ -1,7 +1,7 @@
 #url-shortened {
     display: flex;
     flex-direction: column;
-    margin-top: $gutter;
+    margin-top: $gutter * 1.5;
     border-radius: 5px;
 
     @media screen and (max-width: 768px) {
@@ -10,36 +10,73 @@
 }
 
 .shorturl {
-    background: #f9f9f9;
+    background: #1a1665;
     display: flex;
     flex-direction: row;
-    color: #909090;
+    color: lighten($pastel-blue, 30%);
     padding: 10px 15px;
     border-radius: 5px;
     margin: 5px 0;
+    position: relative;
+    opacity: 0;
+    animation: appear_in .5s ease forwards;
     
     a {
         text-decoration: none;
-        color: #606060;
+        color: lighten($ocean-blue, 10%);
+
+        &:hover {
+            color: lighten($ocean-blue, 20%);    
+        }
     }
 
     .label {
         font-size: .8em;
         font-weight: 600;
+        margin-bottom: 5px;
     }
 
     &-output {
         display: flex;
         flex-direction: column;
+
+        &.is-long {
+            margin-right: $gutter;
+            width: 40%;
+            
+            .url {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                color: darken($pastel-blue, 5%);
+            }
+        }
     }
 
     @media screen and (max-width: 640px) {
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0;
+
+        .label {
+            display: none;
+        }
+
+        .is-long {
+            width: 100%;
+            margin-right: 0;
+
+            .url {
+                font-size: .8rem;
+                margin-bottom: 5px;
+            }
+        }
+
         &-output, a {
             overflow: hidden;
         }
         
         a {
-            max-width: 90%;
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
@@ -49,6 +86,11 @@
 
 .shorturl-actions {
     margin-left: auto;
+    display: flex;
+
+    @media screen and (max-width: $widthSM) {
+        margin: ($gutter / 2) 0 0 0;
+    }
 }
 
 .button-copy {
@@ -56,12 +98,13 @@
     display: flex;
     padding: 5px 8px;
     font-size: 1.2rem;
-    color: $pastel-blue;
+    color: #fff;
     align-items: center;
     justify-content: center;
     background-color: transparent;
     box-shadow: none;
     height: auto;
+    border: 2px solid #fff;
 
     svg {
         margin-right: 5px;
@@ -69,6 +112,7 @@
 
     &:hover {
         background-color: lighten($pastel-blue, 30%);
+        color: $dark-blue;
     }
 }
 
@@ -95,5 +139,16 @@
 
     &.is-visible {
         bottom: 20px;
+    }
+}
+
+@keyframes appear_in {
+    0% {
+        bottom: -20px;
+    }
+
+    100% {
+        opacity: 1;
+        bottom: 0;
     }
 }
