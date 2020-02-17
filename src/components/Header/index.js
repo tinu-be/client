@@ -11,8 +11,8 @@ function Header() {
                     </div>
 
                     <div className="header-content">
-                        <h1>Precisa de uma url menor?</h1>
-                        <p>Use os campos abaixo encurtar seus <strong>links grátis</strong> e compartilhe facilmente.</p>
+                        <h1>Encurtador de url, fácil e gratuito!</h1>
+                        <p>Use os campos abaixo para <strong>encurtar seus links</strong> e compartilhe facilmente.</p>
                     </div>
                 </div>
             </header>

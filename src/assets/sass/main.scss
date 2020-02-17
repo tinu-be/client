@@ -46,4 +46,8 @@ a {
     padding: $gutter;
     margin: 0 auto;
     position: relative;
+
+    @media screen and (max-width: $widthSM) {
+        padding: $gutter / 2 $gutter;
+    }
 }
