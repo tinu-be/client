@@ -6,7 +6,7 @@ function Logo(props) {
           <defs>
             <path id="a" d="M0 0h564.64v132.73H0z"/>
           </defs>
-          <g fill="none" fill-rule="evenodd">
+          <g fill="none" fillRule="evenodd">
             <mask id="b" fill="#fff">
               <use xlinkHref="#a"/>
             </mask>
