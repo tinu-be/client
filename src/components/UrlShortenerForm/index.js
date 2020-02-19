@@ -40,6 +40,9 @@ function UrlShortenerForm() {
             customID: customID.value
         });
 
+        const urlShortened = response.data.shortUrl;
+        const urlOriginal = response.data.longUrl;
+
         if(response.status === 208) {
             setErrorId('Esse sufixo já existe, que tal testar outro?');
             customID.focus();
@@ -60,13 +63,13 @@ function UrlShortenerForm() {
                 }
             }
             
-            setshortUrl([...shortUrl, response.data]);
+            setshortUrl([...shortUrl, { urlShortened, urlOriginal }]);
             longUrl.value = "";
             customID.value = "";
             loading.classList.add('hide');
 
             if(shortUrl) {
-                Storage.set('urls', JSON.stringify([response.data, ...shortUrl]));
+                Storage.set('urls', JSON.stringify([{ urlShortened, urlOriginal }, ...shortUrl]));
             }
         }
     }
@@ -94,7 +97,7 @@ function UrlShortenerForm() {
             { shortUrl !== "" &&
                 <div id="url-shortened" className="is-reversed">
                     { shortUrl.map((item, key) => (
-                        <UrlShortened shortened={item.shortUrl} long={item.longUrl} key={key}/>
+                        <UrlShortened shortened={item.urlShortened} long={item.urlOriginal} key={key}/>
                     )) }
                 </div>
             }
