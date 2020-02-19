@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/svgs/logo.svg';
+import Logo from '../../assets/svgs/logo';
 
 function Header() {
     return(
@@ -7,7 +7,7 @@ function Header() {
             <header id="header">
                 <div className="container">
                     <div className="header-logo">
-                        <img src={logo} alt="tinu.be - encurtador de url" width="160"/> <span className="logo-label">beta</span>
+                        <Logo width="160" /> <span className="logo-label">beta</span>
                     </div>
 
                     <div className="header-content">
