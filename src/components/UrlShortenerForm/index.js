@@ -52,13 +52,13 @@ function UrlShortenerForm() {
             if (process.env.NODE_ENV === 'production') {
                 if(customID.value !== '') {
                     ReactGA.event({
-                      category: 'Url com sufixo',
-                      action: 'Digitou um sufixo para a Url'
+                        category: 'Url com sufixo',
+                        action: 'Digitou um sufixo para a Url'
                     });
                 } else {
                     ReactGA.event({
-                      category: 'Url sem sufixo',
-                      action: 'Não digitou um sufixo para a Url'
+                        category: 'Url sem sufixo',
+                        action: 'Não digitou um sufixo para a Url'
                     });
                 }
             }

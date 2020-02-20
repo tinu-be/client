@@ -78,7 +78,8 @@ form {
     font-size: .8rem;
     margin: 5px 0;
     position: absolute;
-    bottom: -25px;
+    top: 100%;
+    font-weight: 400;
 }
 
 @keyframes loading {
