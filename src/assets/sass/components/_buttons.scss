@@ -1,0 +1,48 @@
+button {
+    cursor: pointer;
+    height: 52px;
+}
+
+.button-primary,
+.swal-button {
+    cursor: pointer;
+    background: linear-gradient(45deg, $blue, lighten($blue, 20%));
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: background .3s ease;
+
+    &:hover {
+        background: linear-gradient(-45deg, $blue, lighten($blue, 5%));
+    }
+}
+
+.swal-button {
+    height: auto;
+}
+
+.button-secondary {
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px;
+    font-size: 1rem;
+    color: $ocean-blue;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
+    height: auto;
+
+    svg {
+        margin-right: 5px;
+    }
+
+    &:hover {
+        background-color: darken($blue, 20%);
+        color: #fff;
+    }
+}
+
+button + button {
+    margin-left: $gutter / 2;
+}

@@ -2,6 +2,10 @@
     padding: $gutter / 2 0;
     align-items: center;
 
+    h1 {
+        color: #fff;
+    }
+
     @media screen and (max-width: $widthSM) {
         text-align: center;
         .container { padding-bottom: 0; }
@@ -21,18 +25,13 @@
     }
 
     h1 {
-        font-size: 3rem;
-        font-weight: 600;
-        margin-bottom: $gutter / 2;
-        line-height: 1.3em;
-
-        + p {
+        p {
             color: $ocean-blue;
-            
+
             strong {
                 color: #fff; 
             }
-        }
+        } 
 
         @media screen and (max-width: $widthSM) {
             font-size: 2rem;

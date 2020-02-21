@@ -57,7 +57,7 @@
         }
     }
 
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: $widthSM) {
         flex-direction: column;
         width: 100%;
         margin: 10px 0;
@@ -97,29 +97,6 @@
     }
 }
 
-.button-copy {
-    cursor: pointer;
-    display: flex;
-    padding: 5px 8px;
-    font-size: 1.2rem;
-    color: #fff;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    box-shadow: none;
-    height: auto;
-    border: 2px solid #fff;
-
-    svg {
-        margin-right: 5px;
-    }
-
-    &:hover {
-        background-color: lighten($pastel-blue, 30%);
-        color: $dark-blue;
-    }
-}
-
 .clipboard-copied {
     background: #91a94e;
     display: flex;
@@ -154,5 +131,15 @@
     100% {
         opacity: 1;
         bottom: 0;
+    }
+}
+
+.alert-clicks-number {
+    font-size: 6rem;
+    color: $orange;
+    font-weight: 600;
+
+    @media screen and (max-width: $widthSM) {
+        font-size: 4rem;
     }
 }

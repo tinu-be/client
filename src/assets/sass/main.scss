@@ -2,52 +2,13 @@
 @import 'settings/variables';
 
 // Partials
+@import 'partials/common';
 @import 'partials/header';
 @import 'partials/footer';
 
 // Components
 @import 'components/hero';
 @import 'components/forms';
+@import 'components/buttons';
+@import 'components/typography';
 @import 'components/short-url';
-
-
-* {
-    box-sizing: border-box;
-    font-size: $font-size-root;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    color: $body-color;
-    font-family: $base-font-family;
-    -webkit-font-smoothing: antialiased;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    border-top: 5px solid $blue;
-}
-
-p {
-    margin: 0;
-    font-size: 1rem;
-}
-
-a {
-    color: $blue;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    max-width: $container-width;
-    padding: $gutter;
-    margin: 0 auto;
-    position: relative;
-
-    @media screen and (max-width: $widthSM) {
-        padding: $gutter / 2 $gutter;
-    }
-}

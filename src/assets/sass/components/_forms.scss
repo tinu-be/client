@@ -57,21 +57,6 @@ form {
     }
 }
 
-.button-primary {
-    cursor: pointer;
-    padding: 0;
-    height: 52px;
-    background: linear-gradient(45deg, $blue, lighten($blue, 20%));
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: background .3s ease;
-
-    &:hover {
-        background: linear-gradient(-45deg, $blue, lighten($blue, 5%));
-    }
-}
-
 .error {
     color: rgb(250, 104, 104);
     border-radius: 3px;
@@ -95,8 +80,4 @@ form {
 .loading-icon {
     animation: loading .5s linear infinite;
     margin-left: 10px;
-
-    &.hide {
-        display: none;
-    }
 }
