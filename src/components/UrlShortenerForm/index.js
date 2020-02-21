@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../services/api';
-import validateUrl from '../../helpers/validateUrl';
-import UrlShortened from '../../components/UrlShortened';
-import {AiOutlineLoading} from 'react-icons/ai';
-import Storage from '../../helpers/Storage';
+
+// Vendors
 import ReactGA from 'react-ga';
+
+// Components and helpers
+import UrlShortened from '../../components/UrlShortened';
+
+// Helpers and assets
+import validateUrl from '../../helpers/validateUrl';
+import Storage from '../../helpers/Storage';
+import {AiOutlineLoading} from 'react-icons/ai';
+
+// Service
+import api from '../../services/api';
 
 function UrlShortenerForm() {
     const [shortUrl, setshortUrl] = useState([]);

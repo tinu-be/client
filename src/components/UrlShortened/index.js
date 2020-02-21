@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+
+// Vendors
+import swal from '@sweetalert/with-react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 // Icons
 import { MdContentCopy, MdCheck } from 'react-icons/md';
 import { GoGraph } from "react-icons/go";
 import { AiOutlineLoading } from 'react-icons/ai';
-
-// Vendor dialog
-import swal from '@sweetalert/with-react';
 
 // Service
 import api from '../../services/api';

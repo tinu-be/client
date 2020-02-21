@@ -1,4 +1,4 @@
-
+// Save and get localStorage items
 const Storage = {
     set: (storage_name, el) => {
         return window.localStorage.setItem(storage_name, el);
