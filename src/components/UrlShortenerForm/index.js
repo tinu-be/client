@@ -20,6 +20,7 @@ function UrlShortenerForm() {
     const [errorId, setErrorId] = useState();
 
     useEffect(() => {
+        // Check if exists url stored into localstorage and set to state
         if(Storage.get('tinube_urls')) {
             setTimeout(() => {
                 setshortUrl(JSON.parse(Storage.get('tinube_urls')));
@@ -27,6 +28,7 @@ function UrlShortenerForm() {
         }
     },[]);
 
+    // Call api to post new short-url
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -35,7 +37,8 @@ function UrlShortenerForm() {
         const loading = document.querySelector('.js-loading-icon');
 
         loading.classList.remove('hide');
-
+        
+        // Check if longUrl
         if(longUrl.value === '' || !validateUrl(longUrl.value)) {
             longUrl.focus();
             setErrorUrl('Preencha a URL corretamente');
@@ -43,6 +46,7 @@ function UrlShortenerForm() {
             return;
         }
 
+        // Call api to post new url
         const response = await api.post('/api/shorten', {
             longUrl: longUrl.value.includes('http://') || longUrl.value.includes('https://') ? longUrl.value : `http://${longUrl.value}`,
             customID: customID.value
@@ -52,11 +56,11 @@ function UrlShortenerForm() {
         const urlOriginal = response.data.longUrl;
         const urlHash = response.data.urlCode;
 
+        // Check custom suffix 
         if(response.status === 208) {
             setErrorId('Esse sufixo já existe, que tal testar outro?');
             customID.focus();
             loading.classList.add('hide');
-
         } else {
             if (process.env.NODE_ENV === 'production') {
                 if(customID.value !== '') {
@@ -76,7 +80,8 @@ function UrlShortenerForm() {
             longUrl.value = "";
             customID.value = "";
             loading.classList.add('hide');
-
+            
+            // Set urls cerated in lcoalstorage
             if(shortUrl) {
                 Storage.set('tinube_urls', JSON.stringify([{ urlShortened, urlOriginal, urlHash }, ...shortUrl]));
             }
