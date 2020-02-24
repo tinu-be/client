@@ -15,7 +15,6 @@
 
 .shorturl {
     background: #1a1665;
-    display: flex;
     flex-direction: row;
     color: lighten($pastel-blue, 30%);
     padding: 10px 15px;
@@ -24,7 +23,11 @@
     position: relative;
     opacity: 0;
     animation: appear_in .5s ease forwards;
-    
+
+    &:not(.hide) {
+        display: flex;
+    }
+
     a {
         text-decoration: none;
         color: lighten($ocean-blue, 10%);

@@ -57,7 +57,7 @@ function UrlShortened(props) {
     }
     return(
         <>
-            <div className="shorturl">
+            <div className={`shorturl ${props.customClass ? props.customClass : ''}`}>
                 <div className="shorturl-output is-long">
                     <span className="label">Url original:</span>
                     <span className="url">{props.long}</span>

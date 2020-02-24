@@ -46,3 +46,15 @@ button {
 button + button {
     margin-left: $gutter / 2;
 }
+
+.button-loadmore {
+    background-color: $pastel-blue;
+    max-width: 200px;
+    color: #fff;
+    padding: 0;
+    margin: $gutter auto 0;
+
+    &:hover {
+        background-color: darken($pastel-blue, 10%);
+    }
+}

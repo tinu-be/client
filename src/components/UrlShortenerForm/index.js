@@ -18,6 +18,8 @@ function UrlShortenerForm() {
     const [shortUrl, setshortUrl] = useState([]);
     const [errorUrl, setErrorUrl] = useState();
     const [errorId, setErrorId] = useState();
+    const [btnLoadUrls, setbtnLoadUrls] = useState('Mostrar mais +');
+    const [urlsVisible, setUrlsVisible] = useState(false);
 
     useEffect(() => {
         // Check if exists url stored into localstorage and set to state
@@ -26,7 +28,7 @@ function UrlShortenerForm() {
                 setshortUrl(JSON.parse(Storage.get('tinube_urls')));
             }, 1000);   
         }
-    },[]);
+    },[shortUrl, btnLoadUrls]);
 
     // Call api to post new short-url
     async function handleSubmit(e) {
@@ -88,6 +90,22 @@ function UrlShortenerForm() {
         }
     }
 
+    // Action to load more Urls
+    function handleLoadMoreUrls() {
+        setbtnLoadUrls('Mostrar menos -');
+        
+        const hiddenUrls = [...document.querySelectorAll('.shorturl.is-extra')];
+
+        if(!urlsVisible) {
+            hiddenUrls.map(el => el.classList.remove('hide'));
+            setUrlsVisible(true);
+        } else {
+            hiddenUrls.map(el => el.classList.add('hide'));
+            setbtnLoadUrls('Mostrar mais +');
+            setUrlsVisible(false);
+        }
+    }
+
     return(
         <>
             <form className="form-grid" action="">
@@ -109,11 +127,17 @@ function UrlShortenerForm() {
             </form>
 
             { shortUrl !== "" &&
-                <div id="url-shortened" className="is-reversed">
+                <div id="url-shortened">
                     { shortUrl.map((item, key) => (
-                        <UrlShortened urlHash={item.urlHash} shortened={item.urlShortened} long={item.urlOriginal} key={key}/>
+                        <UrlShortened urlHash={item.urlHash} customClass={ key >= 4 && !urlsVisible ? 'is-extra hide' : '' } shortened={item.urlShortened} long={item.urlOriginal} key={key}/>
                     )) }
+                    <>
+                        { shortUrl.length > 4 && (
+                            <button className="button-loadmore" onClick={ handleLoadMoreUrls }>{ btnLoadUrls }</button>
+                        )}
+                    </>
                 </div>
+                
             }
         </>
     )
