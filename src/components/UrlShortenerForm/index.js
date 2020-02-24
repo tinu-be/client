@@ -20,9 +20,9 @@ function UrlShortenerForm() {
     const [errorId, setErrorId] = useState();
 
     useEffect(() => {
-        if(Storage.get('urls')) {
+        if(Storage.get('tinube_urls')) {
             setTimeout(() => {
-                setshortUrl(JSON.parse(Storage.get('urls')));
+                setshortUrl(JSON.parse(Storage.get('tinube_urls')));
             }, 1000);   
         }
     },[]);
@@ -78,7 +78,7 @@ function UrlShortenerForm() {
             loading.classList.add('hide');
 
             if(shortUrl) {
-                Storage.set('urls', JSON.stringify([{ urlShortened, urlOriginal, urlHash }, ...shortUrl]));
+                Storage.set('tinube_urls', JSON.stringify([{ urlShortened, urlOriginal, urlHash }, ...shortUrl]));
             }
         }
     }
