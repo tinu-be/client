@@ -39,12 +39,23 @@ function UrlShortenerForm() {
         const loading = document.querySelector('.js-loading-icon');
 
         loading.classList.remove('hide');
+
+        // Check Suffix
+        const suffixRule = new RegExp(/^[a-zA-Z0-9-#_]*$/);
+        if(customID !== "" && !suffixRule.test(customID.value) ) {
+            customID.focus();
+            setErrorId('Não utilize caracteres especiais');
+            loading.classList.add('hide');
+
+            return false;
+        }
         
         // Check if longUrl
         if(longUrl.value === '' || !validateUrl(longUrl.value)) {
             longUrl.focus();
             setErrorUrl('Preencha a URL corretamente');
             loading.classList.add('hide');
+
             return;
         }
 
