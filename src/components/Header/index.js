@@ -7,7 +7,12 @@ function Header() {
             <header id="header">
                 <div className="container">
                     <div className="header-logo">
-                        <Logo width="160" /> <span className="logo-label">beta</span>
+                        <div>
+                            <Logo width="160" /> <span className="logo-label">beta</span>
+                        </div>
+                        <a className="alert" rel="noopener noreferrer" target="_blank" href="https://tinu.be/coronavirus">
+                            <h2>Coronavirus</h2> Proteja-se seguindo as orientações oficiais para prevenção.
+                        </a>
                     </div>
 
                     <div className="header-content">
