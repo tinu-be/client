@@ -128,7 +128,7 @@ function UrlShortenerForm() {
 
                 <div className="form-field">
                     <label htmlFor="customID">Sufixo (opcional)</label>
-                    <input type="text" id="customID" placeholder="ex.: InstaLink" onChange={ () => setErrorId('') }/>
+                    <input type="text" id="customID" placeholder="ex.: InstaLink" maxLength="20" onChange={ () => setErrorId('') }/>
                     { errorId && <small className="error">{errorId}</small> }
                 </div>
 
