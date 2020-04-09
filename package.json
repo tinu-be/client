@@ -1,6 +1,6 @@
 {
   "name": "Tinu.be",
-  "version": "1.5.2-beta",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@sweetalert/with-react": "^0.1.1",
