@@ -1,6 +1,5 @@
 button {
     cursor: pointer;
-    height: 52px;
 }
 
 .button-primary,
@@ -33,7 +32,7 @@ button {
     box-shadow: none;
     height: auto;
 
-    svg {
+    &:not(.is-empty) svg {
         margin-right: 5px;
     }
 
@@ -51,7 +50,6 @@ button + button {
     background-color: $pastel-blue;
     max-width: 200px;
     color: #fff;
-    padding: 0;
     margin: $gutter auto 0;
 
     &:hover {

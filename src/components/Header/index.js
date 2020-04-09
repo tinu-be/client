@@ -8,7 +8,7 @@ function Header() {
                 <div className="container">
                     <div className="header-logo">
                         <div>
-                            <Logo width="160" /> <span className="logo-label">beta</span>
+                            <Logo width="160" />
                         </div>
                         <a className="alert" rel="noopener noreferrer" target="_blank" href="https://tinu.be/coronavirus">
                             <h2>Coronavirus</h2> Proteja-se seguindo as orientações oficiais para prevenção.

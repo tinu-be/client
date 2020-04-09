@@ -69,7 +69,7 @@ function UrlShortened(props) {
                 </div>
 
                 <div className="shorturl-actions">
-                    <button className="button-secondary" data-hash={props.urlHash} onClick={ (el) => handleStats(el) }>
+                    <button className="button-secondary is-empty" data-hash={props.urlHash} onClick={ (el) => handleStats(el) }>
                         <AiOutlineLoading className="js-loading-graph loading-icon hide" size="1.5em"/>
                         <GoGraph className="js-loading-graph" size="1.5em" />
                     </button>

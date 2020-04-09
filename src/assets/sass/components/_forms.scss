@@ -5,9 +5,9 @@ input, button {
     padding: 15px;
     border: 0;
     outline: 0;
-    height: 52px;
     width: 100%;
     transition: .2s ease;
+    min-height: 52px;
 
     &::placeholder {
         color: #bbb;
