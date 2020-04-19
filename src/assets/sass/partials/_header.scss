@@ -2,6 +2,25 @@
     padding: $gutter / 2 0;
     align-items: center;
 
+    .lines span {
+        position: absolute;
+        top: 0;
+        height: 0;
+        width: 1px;
+        background: linear-gradient(rgba($blue, .15) 20%, rgba($dark-blue, 0) 100%);
+        animation: fullheight 2s ease forwards;
+
+        &:nth-child(1) { left: 20%; }
+        &:nth-child(2) { left: 49.93%; }
+        &:nth-child(3) { left: 62.75%; }
+        &:nth-child(4) { left: 80%; }
+
+        @media screen and (max-width: $widthSM) {
+            background: linear-gradient(rgba($blue, .15) 10%, rgba($dark-blue, 0) 50%);
+            &:nth-child(2) { display: none; }
+        }
+    }
+
     h1 {
         color: #fff;
     }

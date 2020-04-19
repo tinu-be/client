@@ -5,14 +5,18 @@ button {
 .button-primary,
 .swal-button {
     cursor: pointer;
-    background: linear-gradient(45deg, $blue, lighten($blue, 20%));
+    background: $blue;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
-    transition: background .3s ease;
+    transition: all .3s ease;
 
     &:hover {
-        background: linear-gradient(-45deg, $blue, lighten($blue, 5%));
+        background: darken($blue, 5%);
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($pastel-blue, .5);
     }
 }
 

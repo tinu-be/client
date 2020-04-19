@@ -5,6 +5,12 @@ function Header() {
     return(
         <>
             <header id="header">
+                <div className="lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div className="container">
                     <div className="header-logo">
                         <div>
@@ -15,7 +21,7 @@ function Header() {
                         </a>
                     </div>
 
-                    <div className="header-content">
+                    <div className="header-content fade-in-up">
                         <h1>Encurtador de url, fácil e gratuito!</h1>
                         <p>Use os campos abaixo para <strong>encurtar seus links</strong> e compartilhe facilmente.</p>
                     </div>

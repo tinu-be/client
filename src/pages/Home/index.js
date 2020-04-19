@@ -6,7 +6,6 @@ import Header from '../../components/Header';
 import UrlShortenerForm from '../../components/UrlShortenerForm';
 
 // Assets
-import anchorShape from '../../assets/svgs/anchor-shape.svg';
 import { FaHeart } from "react-icons/fa";
 import '../../assets/sass/main.scss';
 
@@ -21,7 +20,6 @@ function Home() {
     return (
         <>
             <div className="hero">
-                <img src={anchorShape} className="anchor-shape" width="460" alt="Anchor shape from tinu.be logo"/>
                 <Header />
                 
                 <div className="container">

@@ -8,6 +8,8 @@ input, button {
     width: 100%;
     transition: .2s ease;
     min-height: 52px;
+    position: relative;
+    z-index: 1;
 
     &::placeholder {
         color: #bbb;
@@ -58,22 +60,19 @@ form {
 }
 
 .error {
-    color: rgb(250, 104, 104);
-    border-radius: 3px;
+    background-color: rgb(197, 73, 73);
+    color: #fff;
+    padding: 25px 10px 5px;
+    border-radius: 5px;
     font-size: .8rem;
-    margin: 5px 0;
     position: absolute;
     top: 100%;
-    font-weight: 400;
-}
+    margin-top: -20px;
+    z-index: 0;
 
-@keyframes loading {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
+    @media screen and (max-width: $widthSM){
+        position: relative;
+        top: 0;
     }
 }
 

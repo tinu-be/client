@@ -126,17 +126,6 @@
     }
 }
 
-@keyframes appear_in {
-    0% {
-        bottom: -20px;
-    }
-
-    100% {
-        opacity: 1;
-        bottom: 0;
-    }
-}
-
 .alert-clicks-number {
     font-size: 6rem;
     color: $orange;

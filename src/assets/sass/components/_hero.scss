@@ -1,5 +1,5 @@
 .hero {
-    background-color: $header-bg;
+    background: $header-bg;
     position: relative;
     overflow: hidden;
     padding-bottom: $gutter * 2;
@@ -11,17 +11,5 @@
         transition: all .3s ease;
         animation: anchor 1s ease forwards;
         opacity: 0;
-    }
-}
-
-@keyframes anchor {
-    from {
-        opacity: 0;
-        bottom: -100%;
-    }
-
-    to {
-        opacity: 1;
-        bottom: -40%;
     }
 }

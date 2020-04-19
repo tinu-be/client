@@ -44,7 +44,7 @@ function UrlShortenerForm() {
         const suffixRule = new RegExp(/^[a-zA-Z0-9-#_]*$/);
         if(customID !== "" && !suffixRule.test(customID.value) ) {
             customID.focus();
-            setErrorId('Não utilize caracteres especiais');
+            setErrorId('Tente sem caracteres especiais 😉');
             loading.classList.add('hide');
 
             return false;
@@ -53,7 +53,7 @@ function UrlShortenerForm() {
         // Check if longUrl
         if(longUrl.value === '' || !validateUrl(longUrl.value)) {
             longUrl.focus();
-            setErrorUrl('Preencha a URL corretamente');
+            setErrorUrl('Não encontramos a url, vamos tentar outra? 😁');
             loading.classList.add('hide');
 
             return;

@@ -42,3 +42,9 @@ a {
 .hide {
     display: none;
 }
+
+.fade-in-up {
+    opacity: 0;
+    position: relative;
+    animation: appear_in .5s ease forwards;
+}
