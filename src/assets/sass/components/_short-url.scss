@@ -101,28 +101,27 @@
 }
 
 .clipboard-copied {
+    width: 100%;
     background: #91a94e;
-    display: flex;
-    margin: 0 auto;
-    padding: 10px 15px;
-    border-radius: 5px;
     color: #fff;
-    align-items: center;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
     position: fixed;
     bottom: -70px;
-    left: 50%;
-    z-index: 100;
-    box-shadow: 0 10px 20px rgba(0,0,0, .1);
-    transform: translateX(-50%);
+    left: 0;
+    box-shadow: 0 10px 20px rgba(0,0,0, .2);
     transition: bottom .2s ease;
+    z-index: 100;
+
+    &.is-visible {
+        bottom: 0;
+    }
 
     svg {
         margin-right: 10px;
-    }
-
-    &.is-visible {
-        bottom: 20px;
     }
 }
 
