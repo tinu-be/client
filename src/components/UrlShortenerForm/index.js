@@ -9,7 +9,8 @@ import UrlShortened from '../../components/UrlShortened';
 // Helpers and assets
 import validateUrl from '../../helpers/validateUrl';
 import Storage from '../../helpers/Storage';
-import {AiOutlineLoading} from 'react-icons/ai';
+import { AiOutlineLoading } from 'react-icons/ai';
+import { MdCheck } from 'react-icons/md';
 
 // Service
 import api from '../../services/api';
@@ -20,6 +21,7 @@ function UrlShortenerForm() {
     const [errorId, setErrorId] = useState();
     const [btnLoadUrls, setbtnLoadUrls] = useState('Mostrar mais +');
     const [urlsVisible, setUrlsVisible] = useState(false);
+    const [copied, setCopied] = useState(false);
 
     useEffect(() => {
         // Check if exists url stored into localstorage and set to state
@@ -101,6 +103,17 @@ function UrlShortenerForm() {
         }
     }
 
+    // Handle 'Copied URL' event when click in 'Copy' button
+    function handleCopy() {
+        setCopied(true);
+
+        var changeState = setTimeout(() => {
+            setCopied(false);
+        }, 800);
+
+        return changeState;
+    }
+
     // Action to load more Urls
     function handleLoadMoreUrls() {
         setbtnLoadUrls('Mostrar menos -');
@@ -140,7 +153,7 @@ function UrlShortenerForm() {
             { shortUrl !== "" &&
                 <div id="url-shortened">
                     { shortUrl.map((item, key) => (
-                        <UrlShortened urlHash={item.urlHash} customClass={ key >= 4 && !urlsVisible ? 'is-extra hide' : '' } shortened={item.urlShortened} long={item.urlOriginal} key={key}/>
+                        <UrlShortened onCopy={handleCopy} urlHash={item.urlHash} customClass={ key >= 4 && !urlsVisible ? 'is-extra hide' : '' } shortened={item.urlShortened} long={item.urlOriginal} key={key}/>
                     )) }
                     <>
                         { shortUrl.length > 4 && (
@@ -150,6 +163,10 @@ function UrlShortenerForm() {
                 </div>
                 
             }
+
+            <div className={ 'clipboard-copied ' + (copied ? 'is-visible' : '')}>
+                <MdCheck size="2em"/> Link copiado!
+            </div>
         </>
     )
 };

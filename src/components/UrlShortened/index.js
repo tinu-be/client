@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // Vendors
 import swal from '@sweetalert/with-react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 // Icons
-import { MdContentCopy, MdCheck } from 'react-icons/md';
+import { MdContentCopy } from 'react-icons/md';
 import { GoGraph } from "react-icons/go";
 import { AiOutlineLoading } from 'react-icons/ai';
 
@@ -13,18 +13,7 @@ import { AiOutlineLoading } from 'react-icons/ai';
 import api from '../../services/api';
 
 function UrlShortened(props) {
-    const [copied, setCopied] = useState(false)
-
-    function handleCopy() {
-        setCopied(true);
-
-        var changeState = setTimeout(() => {
-            setCopied(false);
-        }, 800);
-
-        return changeState;
-    }
-
+    
     function isLoading(status, el) {
         if(status === true) {
             el.children[0].classList.remove('hide');
@@ -73,16 +62,12 @@ function UrlShortened(props) {
                         <AiOutlineLoading className="js-loading-graph loading-icon hide" size="1.5em"/>
                         <GoGraph className="js-loading-graph" size="1.5em" />
                     </button>
-                    <CopyToClipboard text={props.shortened} onCopy={ handleCopy }>
+                    <CopyToClipboard text={props.shortened} onCopy={ props.onCopy }>
                         <button className="button-secondary">
                             <MdContentCopy size="1.5em" /> Copiar
                         </button>
                     </CopyToClipboard>
                 </div>
-            </div>
-
-            <div className={ 'clipboard-copied ' + (copied ? 'is-visible' : '')}>
-                <MdCheck size="2em"/> Link copiado!
             </div>
         </>
     )
