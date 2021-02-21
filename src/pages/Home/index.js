@@ -28,7 +28,7 @@ function Home() {
             </div>
 
             <footer>
-                <p><strong>tinu.be</strong> é um serviço 100% gratuito. Criado com <FaHeart className="copyright-icon" /> por <a rel="noopener noreferrer" href="https://itbruno.com.br?ref=tinu.be" target="_blank">Bruno Rodrigues</a>.</p>
+                <p><strong>tinu.be</strong> é um serviço 100% gratuito e <a href="https://github.com/tinu-be" target="_blank" rel="noopener noreferrer">open-source</a>. Criado com <FaHeart className="copyright-icon" /> por <a rel="noopener noreferrer" href="https://itbruno.com.br/?utm_source=tinube&utm_medium=footer" target="_blank">Bruno Rodrigues</a>.</p>
             </footer>
         </>
     );

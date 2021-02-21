@@ -21,13 +21,22 @@
         }
     }
 
-    h1 {
+    h1, h2 {
         color: #fff;
+    }
+
+    h2 {
+        font-size: 1rem;
+        font-weight: normal;
+        color: rgba(#ffffff, .8);
     }
 
     @media screen and (max-width: $widthSM) {
         text-align: center;
-        .container { padding-bottom: 0; }
+        
+        .container { 
+            padding-bottom: 0; 
+        }
     }
 
     .header-content {
@@ -37,24 +46,15 @@
         @media screen and (max-width: $widthSM) {
             padding: ($gutter - 10) 0 0 0;
 
-            h1 + p {
+            h1 {
+                font-size: 2rem;
+                line-height: 1.4em;
+                margin-top: $gutter / 2;
+            }
+
+            h2 {
                 display: none;
             }
-        }
-    }
-
-    h1 {
-        p {
-            color: $ocean-blue;
-
-            strong {
-                color: #fff; 
-            }
-        } 
-
-        @media screen and (max-width: $widthSM) {
-            font-size: 2rem;
-            line-height: 1.2em;
         }
     }
 

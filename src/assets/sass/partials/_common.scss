@@ -24,6 +24,10 @@ p {
 
 a {
     color: $blue;
+
+    &.no-underline {
+        text-decoration: none;
+    }
 }
 
 .container {

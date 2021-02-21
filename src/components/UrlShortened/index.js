@@ -1,4 +1,5 @@
 import React from 'react';
+import QRCode from 'qrcode';
 
 // Vendors
 import swal from '@sweetalert/with-react';
@@ -6,8 +7,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 // Icons
 import { MdContentCopy } from 'react-icons/md';
-import { GoGraph } from "react-icons/go";
-import { AiOutlineLoading } from 'react-icons/ai';
+import { AiOutlineLoading, AiOutlineQrcode, AiOutlineBarChart } from 'react-icons/ai';
 
 // Service
 import api from '../../services/api';
@@ -42,14 +42,47 @@ function UrlShortened(props) {
                 content: (<p className="alert-clicks-number">{info.clicks < 9 ? `0${info.clicks}` : info.clicks}</p>)
             })
         }
-        
     }
+
+    function handleQRcode(el) {
+        el.preventDefault();
+        
+        const button = el.currentTarget;
+        isLoading(true, button);
+
+        QRCode.toDataURL(button.dataset.hash, {
+            width: 600,
+            color: {
+              dark:"#020115",
+              light:"#ffffff"
+            }
+        })
+        .then(url => {
+            isLoading(false, button);
+            const output = (
+                <div>
+                    <img width="300" src={url} alt={button.dataset.hash} /><br/>
+                    <a href={url} className="no-underline" download={`QR Code - from tinu be`}>DOWNLOAD</a>
+                </div>
+            );
+
+            swal({
+                title: "Aponte sua câmera",
+                content: output
+            })
+        })
+        .catch(err => {
+            isLoading(false, button);
+            console.error(err);
+        });
+    }
+
     return(
         <>
             <div className={`shorturl ${props.customClass ? props.customClass : ''}`}>
                 <div className="shorturl-output is-long">
                     <span className="label">Url original:</span>
-                    <span className="url">{props.long}</span>
+                    <span title={props.long} className="url">{props.long}</span>
                 </div>
                 
                 <div className="shorturl-output is-short">
@@ -58,9 +91,13 @@ function UrlShortened(props) {
                 </div>
 
                 <div className="shorturl-actions">
+                    <button className="button-secondary is-empty" data-hash={props.shortened} onClick={ (el) => handleQRcode(el) }>
+                        <AiOutlineLoading className="js-loading-qrcode loading-icon hide" size="1.5em"/>
+                        <AiOutlineQrcode className="js-loading-qrcode" size="1.5em" />
+                    </button>
                     <button className="button-secondary is-empty" data-hash={props.urlHash} onClick={ (el) => handleStats(el) }>
                         <AiOutlineLoading className="js-loading-graph loading-icon hide" size="1.5em"/>
-                        <GoGraph className="js-loading-graph" size="1.5em" />
+                        <AiOutlineBarChart className="js-loading-graph" size="1.8em" />
                     </button>
                     <CopyToClipboard text={props.shortened} onCopy={ props.onCopy }>
                         <button className="button-secondary">

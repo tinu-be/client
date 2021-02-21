@@ -16,14 +16,14 @@ function Header() {
                         <div>
                             <Logo width="160" />
                         </div>
-                        <a className="alert" rel="noopener noreferrer" target="_blank" href="https://tinu.be/coronavirus">
-                            <h2>Coronavirus</h2> Proteja-se seguindo as orientações oficiais para prevenção.
-                        </a>
+                        <div className="alert">
+                            <h2>NOVO</h2> Agora você pode gerar QR Code das suas URLs
+                        </div>
                     </div>
 
                     <div className="header-content fade-in-up">
-                        <h1>Encurtador de url, fácil e gratuito!</h1>
-                        <p>Use os campos abaixo para <strong>encurtar seus links</strong> e compartilhe facilmente.</p>
+                        <h1>Encurtador de url e gerador de QR Code</h1>
+                        <h2>Encurte seus links, gere o QR Code e veja quantas pessoas acessaram em um só lugar.</h2>
                     </div>
                 </div>
             </header>
