@@ -10,10 +10,11 @@ This is a personal project based ReactJS to url shortener named [tinu.be](https:
 ## Setup
 By the first rename the file `.env-sample` to `.env` and fill with all necessary info:
 
-```
-# API host
+```shell
+# Env variables
 REACT_APP_API_URL=http://localhost:5000/
 REACT_APP_GOOGLE_ANALYTICS=UA-XXXXXXXX-X
+REACT_APP_SENTRY_URL=SENTRY_APIKEY_URL
 ```
 
 _Get url from [tinube-api](https://github.com/tinu-be/tinube-api) repo_
