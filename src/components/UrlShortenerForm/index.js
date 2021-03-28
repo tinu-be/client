@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 // Vendors
 import ReactGA from 'react-ga';
+import swal from '@sweetalert/with-react';
 
 // Components and helpers
 import UrlShortened from '../../components/UrlShortened';
@@ -46,7 +47,7 @@ function UrlShortenerForm() {
         const suffixRule = new RegExp(/^[a-zA-Z0-9-#_]*$/);
         if(customID !== "" && !suffixRule.test(customID.value) ) {
             customID.focus();
-            setErrorId('Tente sem caracteres especiais 😉');
+            setErrorId('Tente não usar caracteres especiais');
             loading.classList.add('hide');
 
             return false;
@@ -55,17 +56,30 @@ function UrlShortenerForm() {
         // Check if longUrl
         if(longUrl.value === '' || !validateUrl(longUrl.value)) {
             longUrl.focus();
-            setErrorUrl('Não encontramos a url, vamos tentar outra? 😁');
+            setErrorUrl('Não encontramos a url, vamos tentar outra?');
             loading.classList.add('hide');
 
             return;
         }
 
         // Call api to post new url
-        const response = await api.post('/api/shorten', {
-            longUrl: longUrl.value.includes('http://') || longUrl.value.includes('https://') ? longUrl.value : `http://${longUrl.value}`,
-            customID: customID.value
-        });
+        var response;
+        try {
+             response = await api.post('/api/shorten', {
+                longUrl: longUrl.value.includes('http://') || longUrl.value.includes('https://') ? longUrl.value : `http://${longUrl.value}`,
+                customID: customID.value
+            });
+        } catch(err) {
+            loading.classList.add('hide');
+            swal({
+                title: "Ops!",
+                content: (<p>Ocorreu um erro ao tentar encurtar sua url. Que tal tentar novamente?! <span role="img" aria-label="wink">😉</span></p>)
+            });
+            
+            // Capture error
+            console.log(`URL: ${longUrl.value}`);
+            throw new Error(err);
+        }
 
         const urlShortened = response.data.shortUrl;
         const urlOriginal = response.data.longUrl;

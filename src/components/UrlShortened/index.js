@@ -25,22 +25,26 @@ function UrlShortened(props) {
     }
 
     async function handleStats(el) {
-        el.preventDefault();
-        const button = el.currentTarget;
-        isLoading(true, button);
+        try {
+            el.preventDefault();
+            const button = el.currentTarget;
+            isLoading(true, button);
 
-        const hash = button.getAttribute('data-hash');
-        const response = await api.get(`${hash}/stats`);
+            const hash = button.getAttribute('data-hash');
+            const response = await api.get(`${hash}/stats`);
 
-        const info = response.data;
-        
-        if(response.status === 200) {
-            isLoading(false, button);
+            const info = response.data;
 
-            swal({
-                title: "Quantidade de cliques",
-                content: (<p className="alert-clicks-number">{info.clicks < 9 ? `0${info.clicks}` : info.clicks}</p>)
-            })
+            if(response.status === 200) {
+                isLoading(false, button);
+
+                swal({
+                    title: "Quantidade de cliques",
+                    content: (<p className="alert-clicks-number">{info.clicks < 9 ? `0${info.clicks}` : info.clicks}</p>)
+                })
+            }
+        } catch(err) {
+            throw new Error(err);
         }
     }
 
@@ -62,7 +66,7 @@ function UrlShortened(props) {
             const output = (
                 <div>
                     <img width="300" src={url} alt={button.dataset.hash} /><br/>
-                    <a href={url} className="no-underline" download={`QR Code - from tinu be`}>DOWNLOAD</a>
+                    <a href={url} className="no-underline" download={`QR Code - from tinu.be`}>DOWNLOAD</a>
                 </div>
             );
 
@@ -73,7 +77,7 @@ function UrlShortened(props) {
         })
         .catch(err => {
             isLoading(false, button);
-            console.error(err);
+            throw new Error(err);
         });
     }
 
