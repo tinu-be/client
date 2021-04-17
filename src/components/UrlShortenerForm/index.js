@@ -56,7 +56,7 @@ function UrlShortenerForm() {
         // Check if longUrl
         if(longUrl.value === '' || !validateUrl(longUrl.value)) {
             longUrl.focus();
-            setErrorUrl('Não encontramos a url, vamos tentar outra?');
+            setErrorUrl(longUrl.value === '' ? 'Esse campo não pode ficar vazio' : 'Use uma url válida');
             loading.classList.add('hide');
 
             return;
@@ -65,25 +65,28 @@ function UrlShortenerForm() {
         // Call api to post new url
         var response;
         try {
-             response = await api.post('/api/shorten', {
-                longUrl: longUrl.value.includes('http://') || longUrl.value.includes('https://') ? longUrl.value : `http://${longUrl.value}`,
+            var urlChecked = longUrl.value.includes('http://') || longUrl.value.includes('https://') ? longUrl.value : `http://${longUrl.value}`;
+            response = await api.post('/api/shorten', {
+                longUrl: String(urlChecked),
                 customID: customID.value
             });
         } catch(err) {
             loading.classList.add('hide');
             swal({
                 title: "Ops!",
-                content: (<p>Ocorreu um erro ao tentar encurtar sua url. Que tal tentar novamente?! <span role="img" aria-label="wink">😉</span></p>)
+                content: (<p>Ocorreu um erro. Verifique a url e tente novamente. <span role="img" aria-label="wink">😉</span></p>)
             });
             
             // Capture error
-            console.log(`URL: ${longUrl.value}`);
+            console.log(`URL: ${longUrl.value}`, `Suffix: ${customID.value}`);
             throw new Error(err);
         }
 
         const urlShortened = response.data.shortUrl;
         const urlOriginal = response.data.longUrl;
         const urlHash = response.data.urlCode;
+
+        console.log(String(urlOriginal));
 
         // Check custom suffix 
         if(response.status === 208) {
