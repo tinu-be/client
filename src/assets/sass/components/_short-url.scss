@@ -14,7 +14,7 @@
 }
 
 .shorturl {
-    background: #1a1665;
+    background-color: rgba($blue, .3);
     flex-direction: row;
     color: lighten($pastel-blue, 30%);
     padding: 10px 15px;
@@ -23,6 +23,9 @@
     position: relative;
     opacity: 0;
     animation: appear_in .5s ease forwards;
+    backdrop-filter: blur(10px);
+    transition: all .3s ease;
+    border: 2px solid transparent;
 
     &:not(.hide) {
         display: flex;
@@ -55,8 +58,18 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                color: darken($pastel-blue, 5%);
+                color: rgba(#fff, .4);
             }
+        }
+    }
+
+    &.last-created {
+        background-color: $blue;
+        border-color: rgba($blue, .4);
+        transform: scale(1.005);
+
+        .is-long .url {
+            color: rgba(#fff, .6);
         }
     }
 

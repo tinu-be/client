@@ -21,7 +21,7 @@ function Header() {
                         </div>
                     </div>
 
-                    <div className="header-content fade-in-up">
+                    <div className="header-content">
                         <h1>Encurtador de url e gerador de QR Code</h1>
                         <h2>Encurte seus links, gere o QR Code e veja quantas pessoas acessaram em um só lugar.</h2>
                     </div>

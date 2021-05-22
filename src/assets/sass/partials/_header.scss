@@ -5,10 +5,9 @@
     .lines span {
         position: absolute;
         top: 0;
-        height: 0;
+        height: 100%;
         width: 1px;
         background: linear-gradient(rgba($blue, .15) 20%, rgba($dark-blue, 0) 100%);
-        animation: fullheight 2s ease forwards;
 
         &:nth-child(1) { left: 20%; }
         &:nth-child(2) { left: 49.93%; }

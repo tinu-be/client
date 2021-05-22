@@ -23,15 +23,26 @@ function UrlShortenerForm() {
     const [btnLoadUrls, setbtnLoadUrls] = useState('Mostrar mais +');
     const [urlsVisible, setUrlsVisible] = useState(false);
     const [copied, setCopied] = useState(false);
-
+    
     useEffect(() => {
         // Check if exists url stored into localstorage and set to state
         if(Storage.get('tinube_urls')) {
             setTimeout(() => {
                 setshortUrl(JSON.parse(Storage.get('tinube_urls')));
-            }, 1000);   
+            }, 1000);
         }
     },[shortUrl, btnLoadUrls]);
+
+    function pulseCurrentUrl() {
+        let urlsWrapped = document.querySelector('#url-shortened');
+        urlsWrapped.children[0].classList.add('last-created');
+
+        var showCurrentUrl = setTimeout(() => {
+            urlsWrapped.children[0].classList.remove('last-created');
+        }, 300);
+        
+        return showCurrentUrl;
+    }
 
     // Call api to post new short-url
     async function handleSubmit(e) {
@@ -40,7 +51,7 @@ function UrlShortenerForm() {
         const longUrl = document.querySelector('#longUrl');
         const customID = document.querySelector('#customID');
         const loading = document.querySelector('.js-loading-icon');
-
+        
         loading.classList.remove('hide');
 
         // Check Suffix
@@ -86,8 +97,6 @@ function UrlShortenerForm() {
         const urlOriginal = response.data.longUrl;
         const urlHash = response.data.urlCode;
 
-        console.log(String(urlOriginal));
-
         // Check custom suffix 
         if(response.status === 208) {
             setErrorId('Esse sufixo já existe, que tal testar outro?');
@@ -112,8 +121,14 @@ function UrlShortenerForm() {
             longUrl.value = "";
             customID.value = "";
             loading.classList.add('hide');
+
+            var newElement = document.querySelectorAll('.shorturl')[0];
             
-            // Set urls cerated in lcoalstorage
+            newElement.addEventListener('DOMSubtreeModified', function(){
+                pulseCurrentUrl();
+            });
+
+            // Set urls created in localstorage
             if(shortUrl) {
                 Storage.set('tinube_urls', JSON.stringify([{ urlShortened, urlOriginal, urlHash }, ...shortUrl]));
             }
